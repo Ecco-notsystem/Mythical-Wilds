@@ -1,4 +1,4 @@
-package com.ecco.mythicalwilds;
+package com.ecco.mythicalwildsmod;
 
 import java.util.List;
 

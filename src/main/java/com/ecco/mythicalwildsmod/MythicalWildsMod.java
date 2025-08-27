@@ -1,5 +1,7 @@
-package com.ecco.mythicalwilds;
+package com.ecco.mythicalwildsmod;
 
+import com.ecco.mythicalwildsmod.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -18,14 +20,14 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(MythicalWilds.MOD_ID)
-public class MythicalWilds {
+@Mod(MythicalWildsMod.MOD_ID)
+public class MythicalWildsMod {
     public static final String MOD_ID = "mythicalwildsmod";
-    public static final Logger LOGGER = LogUtils.getLogger();
+    private static final Logger LOGGER = LogUtils.getLogger();
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-    public MythicalWilds(IEventBus modEventBus, ModContainer modContainer) {
+    public MythicalWildsMod(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -33,6 +35,8 @@ public class MythicalWilds {
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
+
+        ModItems.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -46,7 +50,14 @@ public class MythicalWilds {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.REDDRAGONSCLAES);
+            event.accept(ModItems.BRONZEDRAGONSCALES);
+            event.accept(ModItems.WHITEDRAGONSCALES);
+            event.accept(ModItems.GREYDRAGONSCALES);
+            event.accept(ModItems.GREENDRAGONSCALES);
+            event.accept(ModItems.BLUEDRAGONSCALES);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -56,7 +67,7 @@ public class MythicalWilds {
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @EventBusSubscriber(modid = MythicalWilds.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = MythicalWildsMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     static class ClientModEvents {
         @SubscribeEvent
         static void onClientSetup(FMLClientSetupEvent event) {
