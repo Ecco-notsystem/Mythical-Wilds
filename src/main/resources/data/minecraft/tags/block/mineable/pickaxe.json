@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "mythicalwildsmod:whitescalesblock",
+    "mythicalwildsmod:redscalesblock",
+    "mythicalwildsmod:greyscalesblock",
+    "mythicalwildsmod:greenscalesblock",
+    "mythicalwildsmod:bronzescalesblock",
+    "mythicalwildsmod:bluescalesblocks"
+  ]
+}

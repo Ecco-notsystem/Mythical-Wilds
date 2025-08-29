@@ -4,5 +4,15 @@
   "item.mythicalwildsmod.whitedragonscales": "White Dragon Scales",
   "item.mythicalwildsmod.greydragonscales": "Grey Dragon Scales",
   "item.mythicalwildsmod.greendragonscales": "Green Dragon Scales",
-  "item.mythicalwildsmod.bluedragonscales": "Blue Dragon Scales"
+  "item.mythicalwildsmod.bluedragonscales": "Blue Dragon Scales",
+
+  "block.mythicalwildsmod.redscalesblock": "Red Dragon Scales Block",
+  "block.mythicalwildsmod.whitescalesblock": "White Dragon Scales Block",
+  "block.mythicalwildsmod.greyscalesblock": "Grey Dragon Scales Block",
+  "block.mythicalwildsmod.greenscalesblock": "Green Dragon Scales Block",
+  "block.mythicalwildsmod.bronzescalesblock": "Bronze Dragon Scales Block",
+  "block.mythicalwildsmod.bluescalesblock": "Blue Dragon Scales Block",
+
+  "creativetab.mythicalwildsmod.mythicalwildsmod_items": "Mythical Wilds Items",
+  "creativetab.mythicalwildsmod.mythicalwildsmod_blocks": "Mythical Wilds Blocks"
 }

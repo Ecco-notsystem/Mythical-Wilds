@@ -1,5 +1,7 @@
 package com.ecco.mythicalwildsmod;
 
+import com.ecco.mythicalwildsmod.block.ModBlocks;
+import com.ecco.mythicalwildsmod.item.ModCreativeModeTabs;
 import com.ecco.mythicalwildsmod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
@@ -36,7 +38,10 @@ public class MythicalWildsMod {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
+        ModCreativeModeTabs.register(modEventBus);
+
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -50,14 +55,7 @@ public class MythicalWildsMod {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.REDDRAGONSCLAES);
-            event.accept(ModItems.BRONZEDRAGONSCALES);
-            event.accept(ModItems.WHITEDRAGONSCALES);
-            event.accept(ModItems.GREYDRAGONSCALES);
-            event.accept(ModItems.GREENDRAGONSCALES);
-            event.accept(ModItems.BLUEDRAGONSCALES);
-        }
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
